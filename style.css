@@ -1,0 +1,1215 @@
+
+/* ==========================================
+   1. COLORS & GLOBAL RESET
+========================================== */
+
+:root {
+    --navy: #303354;
+    --dark-navy: #171d55;
+    --pink: #ed5b9e;
+    --dark-pink: #d93683;
+    --purple: #a879c9;
+    --blue: #79bfe5;
+    --light-blue: #b9e4f8;
+    --cream: #fff5e7;
+    --yellow: #f5d52f;
+    --teal: #13a68d;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--dark-navy);
+    background: var(--navy);
+    overflow-x: hidden;
+}
+
+/* ==========================================
+   2. ORIGINAL NAVY GRID BACKGROUND
+========================================== */
+
+.desktop-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+
+    background-color: #303354;
+
+    background-image:
+        linear-gradient(rgba(160, 160, 220, 0.35) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(160, 160, 220, 0.35) 1px, transparent 1px);
+
+    background-size: 44px 44px;
+}
+
+/* ==========================================
+   3. WINDOWS NAVIGATION BAR
+========================================== */
+
+.top-bar {
+    width: 100%;
+    min-height: 55px;
+
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    padding: 0 15px;
+
+    background: linear-gradient(
+        90deg,
+        #ef579b,
+        #f36bab
+    );
+
+    border: 3px solid var(--navy);
+
+    position: relative;
+    z-index: 2;
+}
+
+.logo {
+    color: var(--yellow);
+    font-size: 27px;
+    font-weight: 1000;
+    text-shadow: 2px 2px white;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu span {
+    color: var(--dark-navy);
+    font-size: 19px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.menu span:hover {
+    color: white;
+}
+
+.search-box {
+    width: 190px;
+    height: 32px;
+
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    padding: 5px 12px;
+
+    background: #fffaf2;
+    border: 2px solid var(--navy);
+    border-radius: 9px;
+
+    font-size: 25px;
+}
+
+.window-controls {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.window-controls button {
+    width: 53px;
+    height: 48px;
+
+    border: 2px solid var(--navy);
+
+    font-size: 27px;
+    font-weight: bold;
+
+    color: var(--navy);
+    cursor: pointer;
+}
+
+.window-controls button:nth-child(1) {
+    background: #1683c1;
+}
+
+.window-controls button:nth-child(2) {
+    background: var(--yellow);
+}
+
+.window-controls button:nth-child(3) {
+    background: #f04a8b;
+}
+
+/* ==========================================
+   4. MAIN TWO-COLUMN LAYOUT
+========================================== */
+
+.portfolio {
+    width: 96%;
+    max-width: 1450px;
+
+    margin: 24px auto;
+
+    display: grid;
+    grid-template-columns: 37% 63%;
+    gap: 18px;
+    align-items: start;
+}
+
+.left-column,
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    min-width: 0;
+}
+
+/* ==========================================
+   5. PROFILE SECTION
+========================================== */
+
+.profile-card {
+    min-height: 435px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+
+    position: relative;
+    isolation: isolate;
+
+    padding: 15px 10px;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Yellow sunburst behind portrait */
+
+.sun-decoration {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+
+    width: 400px;
+    height: 400px;
+
+    transform: translateX(-50%);
+    z-index: -1;
+
+    background: var(--dark-pink);
+
+    clip-path: polygon(
+        50% 0%, 60% 15%, 76% 5%, 78% 24%,
+        96% 25%, 88% 43%, 100% 57%, 83% 67%,
+        90% 85%, 70% 83%, 62% 100%, 49% 85%,
+        34% 100%, 27% 82%, 8% 87%, 17% 68%,
+        0% 57%, 14% 43%, 4% 26%, 24% 24%,
+        30% 5%, 43% 16%
+    );
+}
+
+.profile-image {
+    width: 100%;
+    height: 380px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+.profile-info {
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-info h1 {
+    color: white;
+
+    font-size: clamp(35px, 4vw, 55px);
+    font-weight: 1000;
+    line-height: 0.95;
+
+    -webkit-text-stroke: 2px var(--pink);
+
+    text-shadow:
+        3px 3px var(--dark-pink),
+        5px 5px var(--navy);
+
+    margin-bottom: 12px;
+}
+
+.designation {
+    width: 100%;
+
+    padding: 10px 5px;
+
+    border: 2px solid #ff9fc8;
+    border-radius: 14px;
+
+    background: var(--pink);
+
+    font-size: 16px;
+    font-weight: 900;
+    color: var(--dark-navy);
+}
+
+.location {
+    margin-top: 12px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   6. COMMON CARD STYLING
+========================================== */
+
+.side-card,
+.main-card,
+.bottom-card {
+    background: var(--cream);
+
+    border: 3px solid #b7ddf5;
+    border-radius: 21px;
+
+    overflow: hidden;
+
+    box-shadow: 4px 5px 0 rgba(12, 15, 60, 0.35);
+}
+
+/* ==========================================
+   7. SECTION HEADERS
+========================================== */
+
+.section-header {
+    min-height: 47px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+
+    padding: 8px 12px;
+
+    background: linear-gradient(
+        90deg,
+        #7777c4,
+        #5758a9
+    );
+
+    border-bottom: 3px solid var(--navy);
+
+    color: white;
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 21px;
+    font-weight: 1000;
+    text-transform: uppercase;
+}
+
+/* Existing three coloured circles */
+
+.window-dots {
+    position: absolute;
+    left: 12px;
+
+    display: flex;
+    gap: 6px;
+}
+
+.window-dots span {
+    width: 17px;
+    height: 17px;
+
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.window-dots .pink {
+    background: #ed3285;
+}
+
+.window-dots .yellow {
+    background: #ffcf23;
+}
+
+.window-dots .teal {
+    background: #13a68d;
+}
+
+/* ==========================================
+   8. ABILITIES SECTION
+========================================== */
+
+.side-content {
+    padding: 13px;
+    background: var(--cream);
+}
+
+.ability-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 12px 8px;
+
+    border-bottom: 2px solid #e3c8e2;
+}
+
+.ability-item:last-child {
+    border-bottom: none;
+}
+
+.ability-icon {
+    width: 70px;
+    height: 65px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--dark-navy);
+    font-size: 42px;
+    font-weight: bold;
+
+    text-shadow: 2px 2px #8dc7ed;
+}
+
+.ability-item h3 {
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.ability-item p {
+    font-size: 16px;
+    line-height: 1.35;
+}
+
+/* ==========================================
+   9. SOFTWARE SKILLS
+========================================== */
+
+.software-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px 10px;
+
+    padding: 18px 10px;
+    text-align: center;
+}
+
+.software-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+}
+
+.software-item p {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.skill-logo {
+    width: 52px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+    font-weight: 1000;
+
+    border-radius: 5px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.html-logo {
+    color: white;
+    background: #ef592e;
+    clip-path: polygon(0 0, 100% 0, 90% 85%, 50% 100%, 10% 85%);
+}
+
+.css-logo {
+    color: white;
+    background: #1673ca;
+    clip-path: polygon(0 0, 100% 0, 90% 85%, 50% 100%, 10% 85%);
+}
+
+.js-logo {
+    background: #f5d52f;
+    color: #171d55;
+}
+
+.react-logo {
+    color: #24c4ed;
+    background: transparent;
+    font-size: 52px;
+}
+
+.node-logo {
+    color: white;
+    background: #63a92f;
+    border-radius: 50% 50% 35% 35%;
+}
+
+.postgres-logo {
+    color: #1c6baf;
+    background: transparent;
+    font-size: 45px;
+}
+
+.git-logo {
+    color: white;
+    background: #f36a3d;
+    transform: rotate(45deg) scale(0.75);
+}
+
+.blender-logo {
+    color: #ef7627;
+    background: transparent;
+    font-size: 48px;
+}
+
+/* ==========================================
+   10. SOFT SKILLS
+========================================== */
+
+.soft-skills {
+    padding: 12px 25px;
+}
+
+.soft-skills p {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 5px 0;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.soft-skills span {
+    color: #f5bd18;
+    font-size: 22px;
+}
+
+/* ==========================================
+   11. INTERESTS
+========================================== */
+
+.interests-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 8px;
+
+    padding: 17px 7px;
+    text-align: center;
+}
+
+.interests-grid > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.interests-grid span {
+    font-size: 35px;
+}
+
+.interests-grid p {
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   12. ABOUT / BEEPS PANEL
+========================================== */
+
+.about-card {
+    border: 5px solid var(--purple);
+    border-radius: 30px;
+
+    background: var(--blue);
+
+    overflow: hidden;
+    box-shadow: none;
+}
+
+.about-content {
+    min-height: 280px;
+
+    padding: 24px;
+
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #9bd9f4,
+        #78bde4
+    );
+}
+
+.about-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 12px;
+}
+
+.about-heading h1 {
+    color: white;
+
+    font-size: 47px;
+    font-weight: 1000;
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 1px var(--pink);
+
+    text-shadow:
+        3px 3px var(--dark-pink),
+        4px 4px var(--navy);
+}
+
+.sound-lines {
+    color: var(--yellow);
+    font-size: 38px;
+    font-weight: 1000;
+}
+
+.about-text {
+    position: relative;
+    z-index: 1;
+    max-width: 100%;
+}
+
+.about-text h3 {
+    font-size: 19px;
+    font-weight: 900;
+    margin-bottom: 5px;
+}
+
+.about-text p {
+    max-width: 88%;
+
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.4;
+
+    margin-bottom: 12px;
+}
+
+/* Pixel kitten */
+
+.cat-decoration {
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    width: 120px;
+    height: 105px;
+
+    z-index: 2;
+}
+
+.cat-decoration img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    image-rendering: pixelated;
+}
+
+/* ==========================================
+   13. CONTACT FOOTER
+========================================== */
+
+.contact-footer {
+    position: relative;
+
+    padding: 13px 20px 18px;
+
+    background: var(--cream);
+
+    border-top: 4px solid var(--yellow);
+
+    border-radius: 0 0 22px 22px;
+}
+
+.contact-footer h2 {
+    text-align: center;
+
+    font-size: 21px;
+    font-weight: 1000;
+
+    margin-bottom: 13px;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 15px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    min-width: 0;
+
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.contact-item p,
+.contact-item a {
+    overflow-wrap: anywhere;
+}
+
+.contact-item a {
+    color: var(--dark-navy);
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    color: var(--pink);
+}
+
+.contact-icon {
+    width: 25px;
+    height: 25px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.location-icon {
+    background: var(--teal);
+    border-radius: 50% 50% 50% 0;
+}
+
+.linkedin-icon {
+    background: #0877b9;
+    border-radius: 4px;
+}
+
+.mail-icon {
+    background: var(--pink);
+    border-radius: 4px;
+}
+
+.github-icon {
+    background: var(--dark-navy);
+    border-radius: 50%;
+}
+
+/* ==========================================
+   14. EDUCATION & EXPERIENCE
+========================================== */
+
+.timeline {
+    padding: 10px 16px;
+    position: relative;
+}
+
+/* Timeline vertical line */
+
+.timeline-line {
+    position: absolute;
+
+    top: 35px;
+    bottom: 35px;
+    left: 59px;
+
+    width: 7px;
+
+    background: var(--yellow);
+    border-radius: 10px;
+}
+
+.timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+
+    position: relative;
+    padding: 15px 8px;
+
+    border-bottom: 2px solid #c38acb;
+}
+
+.timeline-item:last-child {
+    border-bottom: none;
+}
+
+.timeline-icon {
+    width: 80px;
+    height: 80px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+    border: 3px solid #c13b91;
+
+    font-size: 35px;
+
+    position: relative;
+    z-index: 1;
+}
+
+.timeline-details {
+    min-width: 0;
+    padding-top: 2px;
+}
+
+.timeline-details h3 {
+    font-size: 18px;
+    font-weight: 1000;
+    margin-bottom: 5px;
+}
+
+.timeline-details p,
+.timeline-details span {
+    font-size: 16px;
+    line-height: 1.4;
+}
+
+.timeline-details ul {
+    padding-left: 18px;
+    margin-top: 5px;
+
+    font-size: 14px;
+    line-height: 1.35;
+}
+
+/* ==========================================
+   15. PROJECTS
+========================================== */
+
+.projects-content {
+    padding: 10px 18px;
+    background: var(--cream);
+}
+
+.project-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    padding: 14px 0;
+
+    border-bottom: 2px solid #d5a0d0;
+}
+
+.project-item:last-child {
+    border-bottom: none;
+}
+
+.project-number {
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffb5d5;
+    border: 3px solid var(--pink);
+    border-radius: 50%;
+
+    font-size: 18px;
+    font-weight: 1000;
+}
+
+.project-icon {
+    width: 95px;
+    height: 85px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 48px;
+}
+
+.project-details {
+    min-width: 0;
+}
+
+.project-details h3 {
+    font-size: 17px;
+    font-weight: 1000;
+    margin-bottom: 4px;
+}
+
+.project-details p {
+    font-size: 14px;
+    line-height: 1.35;
+    margin-bottom: 4px;
+}
+
+.project-details span {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+/* ==========================================
+   16. BOTTOM CARDS
+========================================== */
+
+.bottom-cards {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 12px;
+
+}
+
+.bottom-card {
+    min-width: 0;
+    min-height: 240px;
+}
+
+.bottom-card .section-header h2 {
+    font-size: 17px;
+}
+
+/* Languages */
+
+.language-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 8px;
+    padding: 15px 8px;
+}
+
+.language-content > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+}
+
+.language-content span {
+    font-size: 38px;
+}
+
+.language-content p {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* Social media */
+
+.social-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 10px;
+    padding: 15px 8px;
+}
+
+.social-content > a,
+.social-content > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    color: var(--dark-navy);
+    text-decoration: none;
+
+    text-align: center;
+}
+
+.social-content span {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.social-content a:first-child span {
+    color: white;
+    background: #0877b9;
+    border-radius: 5px;
+}
+
+.social-content a:nth-child(2) span {
+    color: var(--dark-navy);
+}
+
+.social-content > div span {
+    color: var(--dark-navy);
+}
+
+.social-content p {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* ==========================================
+   17. RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1000px) {
+
+    .portfolio {
+        grid-template-columns: 1fr;
+        width: 94%;
+    }
+
+    .profile-card {
+        min-height: 400px;
+    }
+
+    .profile-image {
+        max-width: 350px;
+    }
+
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .top-bar {
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 8px;
+    }
+
+    .menu {
+        gap: 10px;
+    }
+
+    .menu span {
+        font-size: 14px;
+    }
+
+    .search-box {
+        display: none;
+    }
+
+    .window-controls button {
+        width: 35px;
+        height: 35px;
+        font-size: 20px;
+    }
+
+    .portfolio {
+        width: 94%;
+        margin: 14px auto;
+        gap: 14px;
+    }
+
+    .profile-card {
+        min-height: 370px;
+    }
+
+    .profile-info h1 {
+        font-size: 40px;
+    }
+
+    .about-content {
+        padding: 17px;
+        min-height: 270px;
+    }
+
+    .about-heading h1 {
+        font-size: 35px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+
+    .cat-decoration {
+        width: 75px;
+        height: 70px;
+    }
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline {
+        padding: 8px;
+    }
+
+    .timeline-line {
+        left: 38px;
+    }
+
+    .timeline-item {
+        gap: 10px;
+        padding: 12px 3px;
+    }
+
+    .timeline-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 26px;
+    }
+
+    .timeline-details h3 {
+        font-size: 14px;
+    }
+
+    .timeline-details p,
+    .timeline-details span {
+        font-size: 13px;
+    }
+
+    .project-item {
+        gap: 8px;
+    }
+
+    .project-number {
+        width: 37px;
+        height: 37px;
+        font-size: 14px;
+    }
+
+    .project-icon {
+        width: 55px;
+        height: 60px;
+        font-size: 35px;
+    }
+
+    .project-details h3 {
+        font-size: 14px;
+    }
+
+    .project-details p {
+        font-size: 12px;
+    }
+
+    .project-details span {
+        font-size: 11px;
+    }
+
+    .bottom-cards {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 17px;
+    }
+}
+
+
+/* PROFILE STICKER + NAME ADJUSTMENTS */
+
+.profile-card {
+    min-height: 480px;
+    overflow: visible;
+}
+
+/* Make the yellow background burst bigger */
+.sun-decoration {
+    width: 400px;
+    height: 400px;
+    top: 0;
+}
+
+/* Give the sticker a little more space */
+.profile-image {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    z-index: 1;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
+}
+
+/* Pull the name closer to the sticker */
+.profile-info {
+    position: relative;
+    z-index: 2;
+    margin-top: -30px;
+}
+
+/* Slightly tighter name spacing */
+.profile-info h1 {
+    margin-bottom: 10px;
+}
+
+.otter-decoration {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    width: 145px;
+    height: 125px;
+    z-index: 2;
+}
+
+.otter-decoration img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    image-rendering: pixelated;
+}
